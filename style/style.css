@@ -22,7 +22,26 @@ a {
 }
 
 body > * {
-	padding: 10px 25%;
+	padding: 10px 20%;
+}
+
+@media only screen and (max-width: 848px) {
+	body > * {
+		padding-left: 10%;
+		padding-right: 10%;
+	}
+}
+@media only screen and (max-width: 614px) {
+	body > * {
+		padding-left: 5%;
+		padding-right: 5%;
+	}
+}
+@media only screen and (max-width: 614px) {
+	body > * {
+		padding-left: 0;
+		padding-right: 0;
+	}
 }
 
 body > * + * {
@@ -40,12 +59,21 @@ body > * + * {
 	background: cornflowerblue;
 }
 
+img {
+	max-width: 100%;
+}
+
 /*----------------------------header-----------------------------------*/
 
 #logo__frame {
-	max-width: 400px;
+	width: auto;
+	max-width: 100%;
 	max-height: 120px;
 	overflow: hidden;
+}
+header > img {
+	max-width: 100%;
+	display: block;
 }
 
 nav > * {
@@ -77,6 +105,18 @@ h4:hover + ul {
 	display: block;
 }
 
+@media only screen and (max-width: 614px){
+	nav > * {
+		border-top: white 1px solid;
+		width: 100%;
+	}
+	nav h4 {
+		padding-top: 10px;
+		padding-bottom: 10px;
+		margin: 0;
+	}
+}
+
 /*----------------------------carousel---------------------------------*/
 
 #carousel {
@@ -93,16 +133,6 @@ h4:hover + ul {
 #carousel img {
 	width: 100%;
 }
-/*
-
-@media only screen and (max-width: 940px){
-	#carousel div:nth-child(1) {
-		background-size: 100%;
-		width: 100%;
-		height: auto;
-	}
-}
-*/
 
 #carousel span {
 	position: absolute;
@@ -162,45 +192,44 @@ main h2 {
 	border-bottom: grey 1px solid;
 	width: 100%;
 	padding-bottom: 10px;
+	word-break: break-all;
 }
 
-article, #destinations > div > div {
+article {
 	flex-basis: 32%;
 }
+
 article div {
 	background-color: blueviolet;
-	/*height: 105px;*/
-	padding: 10px
+	padding: 10px;
 }
+
+@media only screen and (max-width: 848px){
+	article {
+		flex-basis: 100%;
+	}
+}
+
 article div > h3 {
 	flex-basis: calc(100% - 100px);
 }
-/*
-
-main article img {
-	float: left;
-}
-*/
 
 article a {
 	color: red;
 }
 
+
+.dest__frame {
+	flex-basis: 32%;
+}
+
 #destinations img {
 	border: 1px solid grey;
 	padding: 4px;
-	margin: 10px;
+	min-height: 140px;
+	width: 100%;
 }
 
-@media only screen and (max-width: 291px){
-	#destinations img {
-		width: 100%;
-	}
-}
-
-#destinations div > div {
-	text-align: center;
-}
 #destinations {
 	position: relative;
 }
@@ -213,12 +242,41 @@ article a {
 	border-radius: 11px;
 	border: none;
 	top: 50%;
-	left: -20px;
+	left: -30px;
 }
-#destinations button:nth-child(3) {
+#destinations button:nth-of-type(2) {
 	background-image: url("../src/right_arrows.png");
-	left: auto;
-	right: -20px;
+	left: unset;
+	right: -30px;
+}
+
+@media only screen and (max-width: 848px) {
+	.dest__frame {
+		flex-basis: 100%;
+	}
+	.dest__frame:nth-of-type(2){
+		display: none;
+	}
+	.dest__frame:nth-of-type(3){
+		display: none;
+	}
+	#destinations button {
+		top: 25%;
+	}
+	#destinations button:nth-of-type(1){
+		display: none;
+	}
+}
+
+@media only screen and (max-width: 614px){
+	#destinations button {
+		top: 10%
+	}
+}
+@media only screen and (max-width: 305px){
+	#destinations button {
+		display: none;
+	}
 }
 
 /*--------------------------us-------------------------------------*/
@@ -232,7 +290,6 @@ article a {
 
 #us .flex-row > *{
 	flex-basis: 47%;
-	min-width: px;
 }
 
 #us img {
