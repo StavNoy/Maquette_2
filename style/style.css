@@ -27,19 +27,19 @@ a {
 }
 
 body > * {
-	padding: 10px 20%;
+	padding: 1.5em 20%;
 }
 
 @media only screen and (max-width: 848px) {
 	body > * {
-		padding-left: 10%;
-		padding-right: 10%;
+		padding-left: 5%;
+		padding-right: 5%;
 	}
 }
 @media only screen and (max-width: 614px) {
 	body > * {
-		padding-left: 5%;
-		padding-right: 5%;
+		padding-left: 10%;
+		padding-right: 10%;
 	}
 }
 @media only screen and (max-width: 305px) {
@@ -57,7 +57,6 @@ body > * + * {
 	display: flex;
 	flex-flow: row wrap;
 	justify-content: space-between;
-	align-items: center;
 }
 
 .bluer {
@@ -76,11 +75,16 @@ img {
 	max-height: 120px;
 	overflow: hidden;
 }
+
+header{
+	align-items: center;
+}
 header > img {
 	display: block;
 }
 
 nav > * {
+	align-items: center;
 	padding-left: 1.5em;
 	padding-right: 1.5em;
 }
@@ -122,7 +126,7 @@ div:hover > ul {
 		border-width: 0 0.1em 0.1em 0;
 		display: inline-block;
 		padding: 0.15em;
-		transform: translateX(0.5em) translateY(-0.1em) rotate(45deg);
+		transform: translateX(0.5em) rotate(45deg);
 	}
 }
 
@@ -181,6 +185,11 @@ div:hover > ul {
 	background: rgba(0, 0, 0, 0.7);
 	padding: 10px;
 }
+@media only screen and (max-width: 848px) {
+	#carousel span {
+		display: none;
+	}
+}
 
 #carousel div button{
 	background-image: url("../src/nav_arrows.png");
@@ -197,7 +206,6 @@ div:hover > ul {
 	left: unset;
 	right: 1em;
 	background-position: 45px;
-	border: black 4px solid;
 }
 
 #carousel div:nth-child(2) {
@@ -284,29 +292,28 @@ article a {
 	right: -30px;
 }
 
-@media only screen and (max-width: 848px) {
-	.dest__frame {
-		flex-basis: 100%;
-	}
-	.dest__frame:nth-of-type(2){
-		display: none;
-	}
-	.dest__frame:nth-of-type(3){
-		display: none;
-	}
+@media only screen and (max-width: 848px){
 	#destinations button {
-		top: 25%;
+		top: 40%
 	}
 	#destinations button:nth-of-type(1){
 		display: none;
 	}
 }
 
-@media only screen and (max-width: 614px){
+@media only screen and (max-width: 614px) {
+	.dest__frame {
+		flex-basis: 100%;
+		display: none;
+	}
+	.dest__frame:first-of-type{
+		display: unset;
+	}
 	#destinations button {
-		top: 10%
+		top: 30%;
 	}
 }
+
 @media only screen and (max-width: 305px){
 	#destinations button {
 		display: none;
@@ -323,8 +330,10 @@ article a {
 	text-transform: capitalize;
 }
 
-#us .flex-row > *{
-	flex-basis: 47%;
+@media only screen and (min-width: 615px){
+	#us .flex-row > * {
+		flex-basis: 47%;
+	}
 }
 
 #us img {
@@ -341,19 +350,24 @@ article a {
 	padding:10px 20px;
 }
 
-/*----------------------------footer-----------------------------------*/
-
-footer div {
-	display: flex;
-	flex-flow: wrap row;
-	font-weight: bold;
-	margin-bottom: 10px;
+#us button:hover {
+	background-color: lightgreen;
+	color: black;
 }
 
-footer div a + a {
-	padding-left: 50px;
+/*----------------------------footer-----------------------------------*/
+
+footer > div {
+	font-weight: bold;
+}
+
+footer a {
+	margin-right: 5%;
 }
 
 small {
 	color: grey;
+	display: inline-block;
+	margin-top: 2em;
+	margin-bottom: 2em;
 }
