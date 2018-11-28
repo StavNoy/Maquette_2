@@ -16,31 +16,43 @@ function flipDests(dest__frame, next__frame) {
 	}
 	return flip;
 }
+function flipBanners(btn, nextBtn) {
+	const flip = (btn.checked);
+	if (flip) {
+		nextBtn.checked = true;
+		btn.onchange();
+	}
+	return flip;
+}
 
 document.addEventListener('DOMContentLoaded', function () {
 	const carousel = document.getElementById('carousel');
 	const inputs = carousel.lastElementChild.children;
+	const banners = carousel.getElementsByTagName('img');
 	for (let i = 0; i < inputs.length; i+=2) {
-		inputs[i].onchange = (function () {
-			carousel.firstElementChild.firstElementChild.src = inputs[i].value;
-		});
+		inputs[i].onchange = function () {
+			for (let j = 0; j < inputs.length; j+=2) {
+				banners[j / 2].style.opacity = inputs[j].checked ? '1' : '0';
+			}
+		};
 	}
-	carousel.firstElementChild.children[1].onclick = function () {
+	carousel.firstElementChild.children[6].onclick = function () {
 		for (let i = inputs.length-2; i > 0; i -= 2) {
-			if (flip_checked_radios(inputs[i], inputs[i - 2])) {
+			if (flipBanners(inputs[i], inputs[i - 2])) {
 				return;
 			}
 		}
-		flip_checked_radios(inputs[0], inputs[inputs.length - 2]);
+		flipBanners(inputs[0], inputs[inputs.length - 2]);
 	};
-	carousel.firstElementChild.children[2].onclick = function () {
+	carousel.firstElementChild.children[7].onclick = function () {
 		for (let i = 0; i < inputs.length - 2; i += 2) {
-			if (flip_checked_radios(inputs[i], inputs[i + 2])) {
+			if (flipBanners(inputs[i], inputs[i + 2])) {
 				return;
 			}
 		}
-		flip_checked_radios(inputs[inputs.length - 2], inputs[0]);
+		flipBanners(inputs[inputs.length - 2], inputs[0]);
 	};
+
 
 	const destinations = document.getElementById('destinations');
 	const dest__frames = destinations.children[1].children;
