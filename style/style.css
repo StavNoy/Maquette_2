@@ -286,6 +286,10 @@ article a {
 	top: 50%;
 	left: -30px;
 }
+#destinations button:active {
+	background-position: 0 22px;
+}
+
 #destinations button:nth-of-type(2) {
 	background-image: url("../src/right_arrows.png");
 	left: unset;
