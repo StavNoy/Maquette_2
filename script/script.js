@@ -72,6 +72,14 @@ document.addEventListener('DOMContentLoaded', function () {
 		}
 		flipDests(dest__frames[0], dest__frames[dest__frames.length-1]);
 	};
+	addEventListener('resize', function () {
+			if (window.screen.width > 614){
+				for (let i = 0; i < dest__frames.length; i++) {
+					dest__frames[i].style.display = '';
+				}
+			}
+		}
+	);
 
 	setInterval(function(){carousel.firstElementChild.children[7].click();}, 5000);
 });
